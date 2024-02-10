@@ -1,0 +1,81 @@
+@import '/styles/global';
+
+.container {
+    width: 100%;
+    max-width: var( --max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.promoTitle {
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 4.48px;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    height: 587px;
+    gap: 16px;
+    margin-bottom: 138px;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+}
+
+.link {
+    position: relative;
+    min-width: 300px;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.linkText {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 32px;
+    line-height: 32px;
+
+}
+
+@include media-max($mobile) {
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .list {
+       height: 470px;
+    }
+
+    .link {
+        min-width: 240px;
+    }
+
+    .linkText {
+        font-size: 24px;
+        line-height: 24px;
+    }
+}

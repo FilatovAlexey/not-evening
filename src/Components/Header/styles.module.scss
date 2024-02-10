@@ -1,0 +1,69 @@
+@import '/styles/global';
+
+
+.container {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 5;
+    transform: translateY(0);
+}
+
+.wrapper {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: var( --max-width);
+
+}
+
+.linksWrapper {
+    position: absolute;
+    right: 40px;
+    top: 40px; 
+}
+
+.label {
+    padding: 0 0 20px 0;
+    border-bottom: none;
+    display: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.accLinksWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: end;
+}
+
+.active {
+    color: #CB5AFF
+}
+
+@include media-max($tablet) {
+    .desktop {
+        display: none;
+    }
+
+    .label {
+        display: block;
+    }
+}
+
+@include media-max($mobile) {
+    .linksWrapper {
+        right: 20px;
+        top: 20px;
+    }
+}

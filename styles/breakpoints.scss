@@ -1,0 +1,23 @@
+$mobileXSmall: 320px;
+$mobileSmall: 359px;
+$mobile: 567px;
+$tabletSmall: 767px;
+$tablet: 1023px;
+$tabletLarge: 1279px;
+$desktop: 1439px;
+$desktopLarge: 1599px;
+$desktopXLarge: 2000px;
+
+@mixin media-min($size) {
+
+	@media (min-width: $size) {
+		@content;
+	}
+}
+
+@mixin media-max($size) {
+
+	@media (max-width: $size) {
+		@content;
+	}
+}

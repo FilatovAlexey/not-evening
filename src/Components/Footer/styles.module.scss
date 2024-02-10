@@ -1,0 +1,72 @@
+@import '../../../styles/global.scss';
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 5;
+}
+
+.wrapper {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var( --max-width);
+    padding: 40px
+}
+
+.linksWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.weAreTrue {
+    color: #FFF;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.book {
+    background-color: transparent;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #FFF; 
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@include media-max($tablet) {
+    .wrapper {
+        flex-direction: column;
+        direction: rtl;
+        gap: 32px;
+        padding: 20px;
+    }
+
+    .linksWrapper {
+        display: none;
+    }
+}
+
+
+@include media-max($mobile) {
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .weAreTrue {
+        font-size: 24px;
+    }
+}
+
