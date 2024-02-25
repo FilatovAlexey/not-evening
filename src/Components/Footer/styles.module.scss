@@ -27,7 +27,6 @@
 }
 
 .weAreTrue {
-    color: #FFF;
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
@@ -43,6 +42,12 @@
     font-size: 14px;
     font-weight: 500;
     line-height: normal;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        color: #ccc;
+        border-color: #ccc;
+    }
 }
 
 @include media-max($tablet) {

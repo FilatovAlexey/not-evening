@@ -3,61 +3,76 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const promoList = [{
-    image: '/',
+    id: '1',
+    video: '/',
+    poster: '/',
     link: '/',
     text: 'ПРОМО'
 },
 {
-    image: '/',
+    id: '2',
+    video: '/',
     link: '/',
+    poster: '/',
     text: 'ЛАЙВ'
 },
 {
-    image: '/',
+    id: '3',
+    video: '/',
+    poster: '/',
     link: '/',
     text: 'ПРОМО'
 },
 {
-    image: '/',
+    id: '4',
+    video: '/',
+    link: '/',
+    poster: '/',
+    text: 'ПРОМО'
+},
+{
+    id: '5',
+    video: '/',
+    poster: '/',
     link: '/',
     text: 'ПРОМО'
 },
 {
-    image: '/',
-
-
+    id: '6',
+    video: '/',
+    poster: '/',
     link: '/',
     text: 'ПРОМО'
 },
 {
-    image: '/',
+    id: '7',
+    video: '/',
+    poster: '/',
     link: '/',
     text: 'ПРОМО'
 },
 {
-    image: '/',
-    link: '/',
-    text: 'ПРОМО'
-},
-{
-    image: '/',
+    id: '8',
+    video: '/',
+    poster: '/',
     link: '/',
     text: 'ПРОМО'
 },
 ]
 
 const Promo = ({ changeActiveBlock }: { changeActiveBlock: (block: string) => void }) => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState<string | undefined>();
     const ref = useRef<HTMLDivElement | null>(null)
 
-    const handleMouseEnter = () => {
-      setIsHovered(true);
+    const handleMouseEnter = (id: string) => {
+        setIsHovered(id);
     };
-  
+
     const handleMouseLeave = () => {
-      setIsHovered(false);
+        setIsHovered(undefined);
     };
 
     useEffect(() => {
@@ -71,7 +86,7 @@ const Promo = ({ changeActiveBlock }: { changeActiveBlock: (block: string) => vo
                 }
             }
         };
-        handleScroll(); 
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -84,13 +99,28 @@ const Promo = ({ changeActiveBlock }: { changeActiveBlock: (block: string) => vo
                 <Link
                     className={styles.link}
                     href={i.link}
-                    key={index} 
-                    onMouseEnter={handleMouseEnter} 
+                    key={index}
+                    onMouseEnter={() => handleMouseEnter(i.id)}
                     onMouseLeave={handleMouseLeave}
+                >
+                    {isHovered === i.id ? <video
+                        className={styles.video}
+                        preload="auto"
+                        no-controls
+                        loop
+                        muted
+                        autoPlay
+                        x-yandex-pip="false"
+                        x-webkit-airplay="deny"
+                        webkit-playsinline=""
+                        playsInline
+                        disableRemotePlayback
                     >
-                    <video className={styles.video} preload="auto" no-controls loop playsInline muted autoPlay={isHovered} >
-                        <source src="/promo.mp4" type="video/mp4"  />
-                    </video>
+                        <source src="/promo.mp4" type="video/mp4" />
+                    </video> : <Image
+                        src="/pictures/members/Polina.png"
+                        alt={i.id}
+                        fill />}
                     <div className={styles.linkText}>{i.text}</div>
                 </Link>)}
         </div>
@@ -98,3 +128,5 @@ const Promo = ({ changeActiveBlock }: { changeActiveBlock: (block: string) => vo
 }
 
 export default Promo
+
+

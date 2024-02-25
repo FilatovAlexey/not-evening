@@ -46,7 +46,7 @@ const Contacts = ({ changeActiveBlock }: { changeActiveBlock: (block: string) =>
                 <div>
                     <div className={styles.name}>Андрей Хмельников</div>
                     <div className={styles.director}>Концертный директор</div>
-                    <div className={styles.phone}>+7 950 621-38-61</div>
+                    <a href="tel:+79506213861" className={styles.phone}>+7 950 621-38-61</a>
                 </div>
             </div>
         </div>

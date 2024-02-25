@@ -10,19 +10,20 @@ import Formats from '@/Components/Formats';
 import Members from '@/Components/Members';
 import Contacts from '@/Components/Contacts';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Head from 'next/head';
 
 export default function Home() {
-    const [activeBlock, setActiveBlock] = useState<string >()
+    const [activeBlock, setActiveBlock] = useState<string>()
     const ref = useRef<HTMLDivElement | null>(null)
 
     const changeActiveBlock = useCallback((block?: string) => {
         setActiveBlock(block)
-    },[])
+    }, [])
 
     useEffect(() => {
         const handleScroll = () => {
             if (ref.current) {
-                const elementRect = ref.current.getBoundingClientRect(); 
+                const elementRect = ref.current.getBoundingClientRect();
                 const isElementVisible = elementRect.top <= 0 && elementRect.top > (-elementRect.height)
                 if (isElementVisible) {
                     changeActiveBlock(undefined)
@@ -38,10 +39,13 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-            <Header activeBlock={activeBlock}/>
+            <Head>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Header activeBlock={activeBlock} />
             <div className={styles.firstView}>
                 <div ref={ref} className={styles.container}>
-                    <div/>
+                    <div />
                     <MainLogo />
                     <Footer />
                 </div>
@@ -51,7 +55,7 @@ export default function Home() {
             <Formats changeActiveBlock={changeActiveBlock} />
             <Members changeActiveBlock={changeActiveBlock} />
             <Contacts changeActiveBlock={changeActiveBlock} />
-          
+
         </main>
     )
 }

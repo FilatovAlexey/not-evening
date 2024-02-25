@@ -17,8 +17,9 @@ const inter = localFont({
   
 
 export const metadata: Metadata = {
-  title: 'Еще не вечер',
-  description: 'Еще не вечер',
+  title: 'ЕЩЕ НЕ ВЕЧЕР',
+  description: 'Кавер группа Еще не вечер',
+  keywords: 'Кавер группа еще не вечер, ЗАказать в Арзамасе, Заказать в Нижнем Новогорде'
 }
 
 export default function RootLayout({
